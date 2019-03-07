@@ -99,7 +99,7 @@ public class IntArrayWorker
     }
   }
   
-  public int getCount()
+  public int getCount(int n)
   {
       int count = 0;
       for (int[] row: matrix)
@@ -111,3 +111,32 @@ public class IntArrayWorker
       return count;
  
 }
+
+public int getLargest()
+{
+    int booty = matrix[0][0];
+    for (int[] i: matrix)
+    {
+        for (int j: i)
+        {
+            if (j>booty)
+                booty = j;
+                
+        }  
+    }
+    return booty;
+}
+
+public int getColTotal(int n)
+{
+    int kookoo = 0;
+    for (int i = 0; i<matrix.length; i++)
+    {
+        kookoo+=matrix[i][n];
+        
+    }
+    return kookoo;
+}
+}
+
+    
