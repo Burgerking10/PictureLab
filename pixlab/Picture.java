@@ -167,7 +167,7 @@ public class Picture extends SimplePicture
       }
     } 
   }
-  
+ 
   public void mirrorHorizontal()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -230,23 +230,50 @@ public class Picture extends SimplePicture
   
   public void mirrorArms()
   {
-    int mirrorPoint = 276;
-    Pixel leftPixel = null;
-    Pixel rightPixel = null;
+    int mirrorPoint = 196;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
     int count = 0;
     Pixel[][] pixels = this.getPixels2D();
-    
+    // start c102, end c295
+    // start r160 end mirrorpoint: 190
     // loop through the rows
-    for (int row = 27; row < 97; row++)
+    // loop through the rows
+    for (int row = 102; row < 295; row++)
     {
       // loop from 13 to just before the mirror point
-      for (int col = 13; col < mirrorPoint; col++)
+      for (int col = 165; col < mirrorPoint; col++)
       {
         
-        bottomPixel = pixels[row][col];      
-        topPixel = pixels[row]                       
-                         [mirrorPoint - col + mirrorPoint];
-        rightPixel.setColor(leftPixel.getColor());
+        topPixel = pixels[col][row];      
+        bottomPixel = pixels[mirrorPoint - col + mirrorPoint]                       
+                         [row];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+  
+  public void MirrorGull()
+  {
+    int mirrorPoint = 344;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+    // start c102, end c295
+    // start r160 end mirrorpoint: 190
+    // loop through the rows
+    // loop through the rows
+    for (int row = 102; row < 295; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 165; col < mirrorPoint; col++)
+      {
+        
+        topPixel = pixels[col][row];      
+        bottomPixel = pixels[mirrorPoint - col + mirrorPoint]                       
+                         [row];
+        bottomPixel.setColor(topPixel.getColor());
       }
     }
   }
@@ -287,14 +314,14 @@ public class Picture extends SimplePicture
   {
     Picture flower1 = new Picture("flower1.jpg");
     Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
-    this.copy(flower1,200,0);
+    this.copy(flower1,0,10);
+    this.copy(flower2,100,20);
+    this.copy(flower1,200,30);
     Picture flowerNoBlue = new Picture(flower2);
     flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
+    this.copy(flowerNoBlue,300,40);
+    this.copy(flower1,400,50);
+    this.copy(flower2,500,60);
     this.mirrorVertical();
     this.write("collage.jpg");
   }
