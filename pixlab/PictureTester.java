@@ -106,6 +106,14 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testCopy()
+  {
+      Picture ocean = new Picture("beach.jpg");
+      Picture flower = new Picture("snowman.jpg");
+      ocean.copy(flower, 10, 10, 150, 170, 160, 230);
+      ocean.explore();
+    }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -131,6 +139,7 @@ public class PictureTester
     //testMirrorDiagonal();
     testCollage();
     testMyCollage();
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
